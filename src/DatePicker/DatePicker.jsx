@@ -23,6 +23,7 @@ export class DatePicker extends PureComponent {
     leftArrowIcon: PropTypes.node,
     rightArrowIcon: PropTypes.node,
     renderDay: PropTypes.func,
+    onClick: PropTypes.func,
   }
 
   static defaultProps = {
@@ -35,6 +36,7 @@ export class DatePicker extends PureComponent {
     leftArrowIcon: undefined,
     rightArrowIcon: undefined,
     renderDay: undefined,
+    onClick: undefined,
   }
 
   state = {
@@ -59,10 +61,12 @@ export class DatePicker extends PureComponent {
   }
 
   openYearSelection = () => {
+    this.props.onClick && this.props.onClick();
     this.setState({ showYearSelection: true });
   }
 
   openCalendar = () => {
+    this.props.onClick && this.props.onClick();
     this.setState({ showYearSelection: false });
   }
 
